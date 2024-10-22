@@ -26,22 +26,23 @@ typedef vector<int>iv;
 #define printv(v) for(auto a:v) cout<<a<<" ";
 #define printmp(m) for(auto a:m) cout<<a.f<<" "<<a.s<<endl;
 
+
+
 int main()
 {
     shihab
-    lli n;
-    while(1)
+    int n;
+    cin >> n;
+    iv a(n),b(n);
+    loop(0,n) cin>>a[i]>>b[i];
+    st match;
+    for(int i=0; i<n; i++)
     {
-        cin >> n;
-        if(n==0) break;
-        int push_cnt = 0;
-        for(lli i=1; i<=n;++i)
+        for(int j=0; j<n; j++)
         {
-            if(n % i == 0 && i != n/i) push_cnt++;
+            if(i!=j && a[i]==b[j]) match.insert(i);
         }
-        if(push_cnt % 2 == 0)
-        cout<<"no"<<endl;
-        else cout<<"yes"<<endl;
     }
+    cout<<n-match.size()<<endl;
     return 0;
 }

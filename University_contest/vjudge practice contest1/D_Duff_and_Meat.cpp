@@ -26,22 +26,22 @@ typedef vector<int>iv;
 #define printv(v) for(auto a:v) cout<<a<<" ";
 #define printmp(m) for(auto a:m) cout<<a.f<<" "<<a.s<<endl;
 
+
 int main()
 {
     shihab
-    lli n;
-    while(1)
+    int n;
+    cin>>n;
+    iv m(n),p(n);
+    loop(0,n) cin>>m[i]>>p[i];
+    int min_p = p[0];
+    // loop(1,n)left_days+=m[i];
+    int cost=0;
+    loop(0,n)
     {
-        cin >> n;
-        if(n==0) break;
-        int push_cnt = 0;
-        for(lli i=1; i<=n;++i)
-        {
-            if(n % i == 0 && i != n/i) push_cnt++;
-        }
-        if(push_cnt % 2 == 0)
-        cout<<"no"<<endl;
-        else cout<<"yes"<<endl;
+        min_p = min(min_p,p[i]);
+        cost+=(m[i]*min_p);
     }
+    cout<<cost<<endl;
     return 0;
 }

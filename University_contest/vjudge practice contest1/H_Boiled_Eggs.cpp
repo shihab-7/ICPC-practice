@@ -29,19 +29,25 @@ typedef vector<int>iv;
 int main()
 {
     shihab
-    lli n;
-    while(1)
+    int i=0;
+    test
     {
-        cin >> n;
-        if(n==0) break;
-        int push_cnt = 0;
-        for(lli i=1; i<=n;++i)
+        ++i;
+        int n,p,q;
+        cin >> n >> p >> q;
+        iv v(n);
+        loop(0,n)cin>>v[i];
+        int cnt=0,egg_w=0;
+        loop(0,n)
         {
-            if(n % i == 0 && i != n/i) push_cnt++;
+            if(cnt < p)
+            {
+                egg_w+= v[i];
+                if(egg_w > q) break;
+                cnt++;
+            }
         }
-        if(push_cnt % 2 == 0)
-        cout<<"no"<<endl;
-        else cout<<"yes"<<endl;
+        cout<<"Case "<<i<<": "<<cnt<<endl;
     }
     return 0;
 }

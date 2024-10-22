@@ -29,19 +29,32 @@ typedef vector<int>iv;
 int main()
 {
     shihab
-    lli n;
-    while(1)
+    int i=0;
+    test
     {
-        cin >> n;
-        if(n==0) break;
-        int push_cnt = 0;
-        for(lli i=1; i<=n;++i)
-        {
-            if(n % i == 0 && i != n/i) push_cnt++;
-        }
-        if(push_cnt % 2 == 0)
-        cout<<"no"<<endl;
-        else cout<<"yes"<<endl;
+        ++i;
+        double r1, r2, r3;
+        cin >> r1 >> r2 >> r3;
+
+        //triangle calc
+        double a=r2+r3, b=r1+r3, c=r1+r2;
+        //ordho porishima
+        double s = (a+b+c)/2.0;
+        double t_area = sqrt(s*(s-a)*(s-b)*(s-c));
+
+        //angles
+        double angA= acos(((b*b)+(c*c)-(a*a))/(2.0*b*c));
+        double angB= acos(((a*a)+(b*b)-(c*c))/(2.0*a*b));
+        double angC= acos(((a*a)+(c*c)-(b*b))/(2.0*a*c));
+        //trivuj er faka onshor area
+        double A1 = 0.5*r1*r1*angA;
+        double B1 = 0.5*r3*r3*angB;
+        double C1 = 0.5*r2*r2*angC;
+        double total_free_space = A1+B1+C1 ;
+
+        // blue area
+        double ans = t_area - total_free_space;
+        cout<<fixed<<setprecision(10)<<"Case "<<i<<": "<<ans<<endl;
     }
     return 0;
 }
