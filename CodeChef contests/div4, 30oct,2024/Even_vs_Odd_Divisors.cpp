@@ -30,26 +30,23 @@ typedef vector<int>iv;
 int main()
 {
     shihab
-    int i=0;
     test
     {
-        ++i;
-        int n;
-        cin >> n;
-        iv v(n);
-        loop(0,n) cin>>v[i];
-        int cnt=0;
-        loop(1,n)
+        int num, ev=0,od=0;
+        cin>>num;
+        for(int i=1;i<=num;++i)
         {
-            int d = (v[i]-v[i-1]);
-            // cout<<d<<endl;
-            while(d > 0)
+            int ind;
+            if(num % i == 0)
             {
-                cnt++;
-                d-=5;                
+                ind=i;
+                if(ind % 2 ==0) ev++;
+                else od++;
             }
         }
-        cout<<"Case "<<i<<": "<<cnt<<endl;
+        if(ev>od) cout<<1<<endl;
+        if(ev==od) cout<<0<<endl;
+        if(ev<od) cout<<-1<<endl;
     }
     return 0;
 }

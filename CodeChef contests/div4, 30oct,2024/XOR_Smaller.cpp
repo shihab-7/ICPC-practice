@@ -27,29 +27,40 @@ typedef vector<int>iv;
 #define printmp(m) for(auto a:m) cout<<a.f<<" "<<a.s<<endl;
 
 
+
 int main()
 {
     shihab
-    int i=0;
     test
     {
-        ++i;
         int n;
-        cin >> n;
-        iv v(n);
-        loop(0,n) cin>>v[i];
-        int cnt=0;
-        loop(1,n)
+        cin>>n;
+        vector<lli>v(n);
+        for(int i = 0; i < n; ++i)
         {
-            int d = (v[i]-v[i-1]);
-            // cout<<d<<endl;
-            while(d > 0)
-            {
-                cnt++;
-                d-=5;                
-            }
+            cin>>v[i];
         }
-        cout<<"Case "<<i<<": "<<cnt<<endl;
+        int mx_bit=0;
+        for(int i=0;i<n;++i)
+        {
+            mx_bit = max(mx_bit,__builtin_clz(v[i]));
+        }
+        mx_bit = 31-mx_bit;
+        int cnt=0;
+        for(int j=0;j<=mx_bit;++j)
+        {
+            bool flag = 1;
+            for(int i=0;i<n;++i)
+            {
+                if((v[i] & (1<<j))==0)
+                {
+                    flag=0;
+                    break;
+                }
+            }
+            if(flag) cnt+= 1<<j;
+        }
+        cout<<cnt<<endl;
     }
     return 0;
 }

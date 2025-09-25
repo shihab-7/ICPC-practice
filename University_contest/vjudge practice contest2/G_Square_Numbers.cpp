@@ -27,29 +27,20 @@ typedef vector<int>iv;
 #define printmp(m) for(auto a:m) cout<<a.f<<" "<<a.s<<endl;
 
 
+
 int main()
 {
     shihab
-    int i=0;
-    test
+    while(1)
     {
-        ++i;
-        int n;
-        cin >> n;
-        iv v(n);
-        loop(0,n) cin>>v[i];
+        int a,b;
+        cin>>a>>b;
+        if(a==0 && b==0) break;
         int cnt=0;
-        loop(1,n)
-        {
-            int d = (v[i]-v[i-1]);
-            // cout<<d<<endl;
-            while(d > 0)
-            {
-                cnt++;
-                d-=5;                
-            }
-        }
-        cout<<"Case "<<i<<": "<<cnt<<endl;
+        int close_a = ceil(sqrt(a));
+        int close_b = floor(sqrt(b));
+        cnt=max(0,close_b-close_a+1);
+        cout<<cnt<<endl;
     }
     return 0;
 }

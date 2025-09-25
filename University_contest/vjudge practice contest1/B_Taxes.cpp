@@ -26,42 +26,22 @@ typedef vector<int>iv;
 #define printv(v) for(auto a:v) cout<<a<<" ";
 #define printmp(m) for(auto a:m) cout<<a.f<<" "<<a.s<<endl;
 
-/*############# basic functions ######################*/
-
-//custom compare function
-bool comp(pii &a,pii &b)
-{
-    // to use in ascending order pair sort
-    return a.f < b.f || (a.f == b.f && a.s < b.s);
-    //to use in descending order pair sort
-    //return a.f > b.f || (a.f == b.f && a.s > b.s);
-}
-//prime check
-bool isPrime(int n)
-{
-    if (n<=1) return false;
-    if(n<=3) return true;
-    if(n%2==0 || n%3==0) return false;
-    for(int i=5;i*i<=n;i+=6) if(n%i==0 || n%(i+2)==0) return false;
-    return true;
-}
-// to reverse sort function
-bool rev(int &a,int &b)
-{
-    return a > b;
-}
-// decimal number to binary conversion
-string Decimal_to_binary(int num)
-{
-    string binary;
-    while(num > 0)
-    {
-        if((num&1)) binary+="1";
-        else binary+="0";
-        num>>=1;
+bool isPrime(int n) {
+    if (n <= 1) {
+        return false; // Handle edge cases: 0 and 1 are not prime
     }
-    reverse(bgen(binary));
-    return binary;
+    if (n <= 3) {
+        return true; // Handle small primes: 2 and 3 are prime
+    }
+    if (n % 2 == 0 || n % 3 == 0) {
+        return false; // Check divisibility by 2 and 3
+    }
+    for (int i = 5; i * i <= n; i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0) {
+            return false; // Check divisibility by 6k ± 1
+        }
+    }
+    return true; // If no divisors found, n is prime
 }
 
 int main()
@@ -69,19 +49,31 @@ int main()
     shihab
     int n;
     cin >> n;
-    int tax = 0;
-    if(n==2) cout<<1<<endl;
-    else
+    int tax=1;
+    if(n > 2)
     {
-        for(int i=2;i<n;++i)
+        
+        if(isPrime(n)) 
         {
-            if(n % i == 0)
+            for(int i=2;i*i<=n-1;++i)
             {
-                tax=i;
-                break;
+                if((n-1) % i == 0)
+                {
+                    tax=max(tax,i);
+                }
             }
         }
-        cout<<tax<<endl;
+        else 
+        {
+            for(int i=2;i*i<=n;++i)
+            {
+                if(n % i == 0)
+                {
+                    tax=max(tax,i);
+                }
+            }
+        }
     }
+    cout<<tax<<endl;
     return 0;
 }

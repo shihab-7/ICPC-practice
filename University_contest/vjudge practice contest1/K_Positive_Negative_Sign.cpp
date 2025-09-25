@@ -35,12 +35,15 @@ int main()
         ++i;
         int n,m;cin >> n >> m;
         int sum = 0, sign = -1;
-        for(int i=1;i<=n;++i)
-        {
-            sum+= (i*sign);
-            if(i % m == 0) sign*=-1;
-        }
-        cout<<"Case "<<i<<": "<<sum<<endl;
+        int gap_sum = (n*1)+(((m+1)*(n-1)*n)/2);
+        int totalsum = ((1+n)*n)/2;
+        sum = totalsum - gap_sum;
+        // for(int j=1;j<=n;++j)
+        // {
+        //     sum+= (j*sign);
+        //     if(j % m == 0) sign*=-1;
+        // }
+        cout<<"Case "<<i<<": "<<gap_sum<<endl;
     }
     return 0;
 }

@@ -34,22 +34,22 @@ int main()
     test
     {
         ++i;
-        int n;
-        cin >> n;
-        iv v(n);
-        loop(0,n) cin>>v[i];
-        int cnt=0;
-        loop(1,n)
+        lli w;
+        cin>>w;
+        if(w%2!=0) cout<<"Case "<<i<<": "<<"Impossible"<<endl;
+        else
         {
-            int d = (v[i]-v[i-1]);
-            // cout<<d<<endl;
-            while(d > 0)
+            lli m,n;
+            for(lli i=1; i<w;++i)
             {
-                cnt++;
-                d-=5;                
+                m=i;
+                n=w/m;
+                if(n*m == w && (n & 1))
+                break;
             }
+            cout<<"Case "<<i<<": "<<n<<" "<<m<<endl;
         }
-        cout<<"Case "<<i<<": "<<cnt<<endl;
+
     }
     return 0;
 }

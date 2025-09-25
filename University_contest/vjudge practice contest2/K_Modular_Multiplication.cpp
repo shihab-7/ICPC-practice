@@ -5,7 +5,7 @@ using namespace std;
 typedef long long int lli;
 const int inf = INT_MAX;
 const lli linf = LLONG_MAX;
-const auto MOD = 1000000007;
+const long MOD = 10000007;
 
 /* ############ stl containers ##############*/
 typedef vector<lli>llv;
@@ -31,25 +31,11 @@ int main()
 {
     shihab
     int i=0;
-    test
+    lli a,b;
+    while(cin>>a>>b)
     {
         ++i;
-        int n;
-        cin >> n;
-        iv v(n);
-        loop(0,n) cin>>v[i];
-        int cnt=0;
-        loop(1,n)
-        {
-            int d = (v[i]-v[i-1]);
-            // cout<<d<<endl;
-            while(d > 0)
-            {
-                cnt++;
-                d-=5;                
-            }
-        }
-        cout<<"Case "<<i<<": "<<cnt<<endl;
+        cout<<"Case "<<"#"<<i<<": "<<((a%MOD)*(b%MOD)%MOD)<<endl;
     }
     return 0;
 }

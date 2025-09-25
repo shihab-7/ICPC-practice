@@ -27,29 +27,17 @@ typedef vector<int>iv;
 #define printmp(m) for(auto a:m) cout<<a.f<<" "<<a.s<<endl;
 
 
+
 int main()
 {
     shihab
-    int i=0;
-    test
-    {
-        ++i;
-        int n;
-        cin >> n;
-        iv v(n);
-        loop(0,n) cin>>v[i];
-        int cnt=0;
-        loop(1,n)
-        {
-            int d = (v[i]-v[i-1]);
-            // cout<<d<<endl;
-            while(d > 0)
-            {
-                cnt++;
-                d-=5;                
-            }
-        }
-        cout<<"Case "<<i<<": "<<cnt<<endl;
-    }
+    int Tn;
+    cin>>Tn;
+    int rootVal = sqrt((1+8*Tn));
+    int triang_indx = (-1+rootVal)/2;
+    if(triang_indx*(triang_indx+1)/2 == Tn)
+        cout<<"YES"<<endl;
+    else 
+        cout<<"NO"<<endl;
     return 0;
 }

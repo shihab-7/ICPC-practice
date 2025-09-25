@@ -26,30 +26,29 @@ typedef vector<int>iv;
 #define printv(v) for(auto a:v) cout<<a<<" ";
 #define printmp(m) for(auto a:m) cout<<a.f<<" "<<a.s<<endl;
 
-
 int main()
 {
     shihab
-    int i=0;
     test
     {
-        ++i;
-        int n;
-        cin >> n;
-        iv v(n);
-        loop(0,n) cin>>v[i];
-        int cnt=0;
-        loop(1,n)
+        int n,m;
+        cin>>n>>m;
+        string x,y;
+        cin>>x>>y;
+        bool flag = false;
+        set<char>x1,y1;
+        for(auto c:x) x1.insert(c);
+        for(auto c:y) y1.insert(c);
+        for(char i='a';i<='z';++i)
         {
-            int d = (v[i]-v[i-1]);
-            // cout<<d<<endl;
-            while(d > 0)
+            if(x1.find(i)==x1.end() && y1.find(i)==y1.end())
             {
-                cnt++;
-                d-=5;                
+                flag = true;
+                break;
             }
         }
-        cout<<"Case "<<i<<": "<<cnt<<endl;
+        if(flag) cout<<"Yes"<<endl;
+        else cout<<"No"<<endl;
     }
     return 0;
 }
